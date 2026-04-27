@@ -1,39 +1,75 @@
-# Task 4 Documentation
+# C++ Embedded Systems Documentation
 
-## C++ Embedded Systems Overview
-This documentation covers the details needed to understand and work on Task 4.
+## Hardware Requirements
+- **Microcontroller Options:**
+  - Arduino Uno
+  - Raspberry Pi Pico
+  - STM32F4 Series
 
-### Hardware Components
-- Microcontroller: [Specify Microcontroller]
-- Sensors: [List of sensors used]
-- Actuators: [Actuators specifications]
-- Development Boards: [List boards used]
-- Power Supply: [Details on power supply necessity]
+## Software Setup
+- **IDE Installation:** 
+  - Install Arduino IDE or Visual Studio Code.
+- **Library Installation:**
+  - Install relevant libraries for the microcontroller.
 
-### Software Requirements
-- C++ Compiler: [Specify compiler]
-- IDE: [Recommended Integrated Development Environment]
-- Libraries: [List of required libraries]
+## Code Examples
+### Basic LED Circuit
+```cpp
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
 
-### Detailed Setup Instructions
-1. **Install the IDE:** [Installation instructions]
-2. **Install Libraries:** [Instructions on library installation]
-3. **Hardware Connection:** [Step-by-step setup of hardware connections]
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
 
-### Compilation Steps
-1. **Open the Project in IDE:** [Steps to open project]
-2. **Select Build Configuration:** [Instructions on how to ensure correct build settings]
-3. **Build the Project:** [Instructions to compile the code]
+### Button Circuit
+```cpp
+void setup() {
+  pinMode(buttonPin, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
 
-### Usage Examples
-- **Example 1:** [Provide a simple usage example with explanation]
-- **Example 2:** [Another usage example]
+void loop() {
+  if (digitalRead(buttonPin) == HIGH) {
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+}
+```
 
-### Troubleshooting Guide
-- **Common Issues:** [List potential issues and their solutions]
-- **Debugging Tips:** [Provide useful debugging approaches]
+### PWM Example
+```cpp
+void setup() {
+  pinMode(ledPin, OUTPUT);
+}
 
-### Contact Information
-For further questions, please reach out to [Your Contact Information].
+void loop() {
+  for (int i = 0; i <= 255; i++) {
+    analogWrite(ledPin, i);
+    delay(10);
+  }
+  for (int i = 255; i >= 0; i--) {
+    analogWrite(ledPin, i);
+    delay(10);
+  }
+}
+```
 
----
+## Compilation Process
+1. Open the IDE and load the sketch.
+2. Select the appropriate board and port.
+3. Click on 'Compile' to build the project.
+4. Upload the code to the microcontroller.
+
+## Troubleshooting Guide
+- **Common Issues:**
+  - **Issue:** Device not recognized.
+    - **Solution:** Check USB connection and drivers.
+  - **Issue:** Code compilation errors.
+    - **Solution:** Ensure libraries are installed. Check syntax errors.

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "author": "Aovi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": -14.4, "left": -86.9, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -195.4,
+      "left": -307.2,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": 233.6,
+      "left": -517.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -183.2,
+      "left": 390.6,
+      "rotate": 90,
+      "attrs": { "color": "yellow", "flip": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 558.4,
+      "left": -226.2,
+      "rotate": 180,
+      "attrs": { "color": "yellow", "flip": "1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -130.4,
+      "left": -496.98,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -168.85,
+      "left": 259.2,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 301.55,
+      "left": -230.4,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "pir1:OUT", "nano:3", "green", [ "v0" ] ],
+    [ "pir1:GND", "nano:GND.1", "black", [ "v0" ] ],
+    [ "pir1:VCC", "nano:5V", "red", [ "v124.8", "h374.4" ] ],
+    [ "btn2:1.r", "nano:2", "green", [ "h144.2", "v57.6", "h124.8" ] ],
+    [ "btn2:2.r", "nano:GND.1", "green", [ "h0" ] ],
+    [ "ldr2:VCC", "nano:5V", "red", [ "h67.2", "v-96", "h-86.4" ] ],
+    [ "ldr2:GND", "nano:GND.1", "black", [ "h0" ] ],
+    [ "ldr2:AO", "nano:A0", "green", [ "h0" ] ],
+    [ "r1:1", "nano:4", "gray", [ "h0" ] ],
+    [ "r1:2", "led1:A", "gray", [ "h37.55", "v96.65" ] ],
+    [ "led1:C", "nano:GND.1", "gray", [ "v18.8", "h-307.2" ] ],
+    [ "r2:1", "nano:5", "white", [ "v0" ] ],
+    [ "r2:2", "led2:A", "white", [ "v0" ] ],
+    [ "led2:C", "nano:GND.1", "white", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
